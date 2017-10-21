@@ -1,6 +1,5 @@
 #containerx
-===
-
+----
 <b>简介：<b/> <br/>
 containerx是一款迷你型的bean容器，IoC框架。是作者学习了Spring源码后，为了进一步学习Spring原理而自行开发的框架。
 极少使用其他的第三方jar包。<br/><br/>
@@ -38,11 +37,4 @@ address=Shanghai,China(中国-上海)
 person=com.frank.containerx.demo.model.Person@33909752
 person1=com.frank.containerx.demo.model.Person@33909752
 person == person1? true
-</pre></code>
-
-框架原理: <br/>
- 核心方法是<code>inject(Object bean, Map<String, Object> properties)</code><br/>
-而其中最核心的一行代码是
-<pre><code>
-method.invoke(bean, methodMap.get(methodName));
 </pre></code>
