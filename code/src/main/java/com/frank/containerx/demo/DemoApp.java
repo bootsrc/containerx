@@ -1,8 +1,7 @@
 package com.frank.containerx.demo;
 
-import java.util.ArrayList;
-
 import com.frank.containerx.demo.model.Person;
+import com.frank.containerx.factory.BeanFactory;
 import com.frank.containerx.factory.XmlBeanFactory;
 
 /**
@@ -12,7 +11,7 @@ import com.frank.containerx.factory.XmlBeanFactory;
  */
 public class DemoApp {
 	public static void main(String[] args) {
-		XmlBeanFactory beanFactory = new XmlBeanFactory("beans.xml");
+		BeanFactory beanFactory = new XmlBeanFactory("beans.xml");
 		Person person = (Person)beanFactory.getBean("myPerson");
 		
 		System.out.println("name=" + person.getName());
