@@ -4,7 +4,7 @@ containerx是一款迷你型的bean容器，IoC框架。是作者学习了Spring
 极少使用其他的第三方jar包。<br/><br/>
 ##用途
 主要用于学习Spring/AOP原理 <br/>
-<b>核心开发者</b> Frank Liu(刘少明) 个人git <a href="https://github.com/frank-liu-1">https://github.com/frank-liu-1</a> <br/>
+<b>核心开发者</b> Frank Liu(刘少明) 个人git <a href="https://github.com/frank-liu-1" target="_blank">https://github.com/frank-liu-1</a> <br/>
 邮箱liushaomingdev@163.com
 <br/>
 
