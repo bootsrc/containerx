@@ -15,12 +15,7 @@ import com.frank.containerx.parser.xml.DefaultDocumentLoader;
  * @author Frank Liu(liushaomingdev@163.com)
  *
  */
-public class XmlBeanFactory {
-	public Object getBean(String beanName) {
-		Object bean = BeanRegistry.getSingletonBean(beanName);
-		return bean;
-	}
-	
+public class XmlBeanFactory implements BeanFactory {
 	public XmlBeanFactory(String fileName) {
 		try {
 			Map<String, BeanElement> beanDefinitionMap = DefaultDocumentLoader.readDefinition(fileName);
@@ -28,5 +23,11 @@ public class XmlBeanFactory {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	@Override
+	public Object getBean(String beanName) {
+		Object bean = BeanRegistry.getSingletonBean(beanName);
+		return bean;
 	}
 }
