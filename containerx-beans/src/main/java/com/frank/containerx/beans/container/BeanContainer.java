@@ -1,4 +1,4 @@
-package com.frank.containerx.container;
+package com.frank.containerx.beans.container;
 
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;

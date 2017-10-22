@@ -12,7 +12,7 @@ containerx是一款迷你型的bean容器，IoC框架。是作者学习了Spring
 1. setter注入; <br/>
 2. 单例bean的注册和获取; <br/>
 
-##示例demo
+##示例containerx-demo項目
 Java代码如下：
 <pre><code>
 public class DemoApp {
@@ -43,3 +43,5 @@ person == person1? true
 <pre><code>
 method.invoke(bean, methodMap.get(methodName));
 </pre></code>
+
+

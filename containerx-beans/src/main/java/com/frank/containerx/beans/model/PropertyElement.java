@@ -1,4 +1,4 @@
-package com.frank.containerx.model;
+package com.frank.containerx.beans.model;
 
 public class PropertyElement {
 	private String name;

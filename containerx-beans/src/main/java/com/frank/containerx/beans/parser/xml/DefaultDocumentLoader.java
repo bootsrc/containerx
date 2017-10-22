@@ -1,4 +1,4 @@
-package com.frank.containerx.parser.xml;
+package com.frank.containerx.beans.parser.xml;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -19,9 +19,9 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
-import com.frank.containerx.container.BeanContainer;
-import com.frank.containerx.model.BeanElement;
-import com.frank.containerx.model.PropertyElement;
+import com.frank.containerx.beans.container.BeanContainer;
+import com.frank.containerx.beans.model.BeanElement;
+import com.frank.containerx.beans.model.PropertyElement;
 
 public class DefaultDocumentLoader {
 	private static Document xmlFile2Doc(String fileName) {

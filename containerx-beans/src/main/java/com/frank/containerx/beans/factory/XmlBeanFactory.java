@@ -1,10 +1,10 @@
-package com.frank.containerx.factory;
+package com.frank.containerx.beans.factory;
 
 import java.util.Map;
 
-import com.frank.containerx.container.BeanRegistry;
-import com.frank.containerx.model.BeanElement;
-import com.frank.containerx.parser.xml.DefaultDocumentLoader;
+import com.frank.containerx.beans.container.BeanRegistry;
+import com.frank.containerx.beans.model.BeanElement;
+import com.frank.containerx.beans.parser.xml.DefaultDocumentLoader;
 
 /**
  * 类似于Spring的一个bean container - bean容器. 简单的依赖注入功能. 可以提高开发者对Java反射机制，

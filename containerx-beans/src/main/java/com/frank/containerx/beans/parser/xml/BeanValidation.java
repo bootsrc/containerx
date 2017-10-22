@@ -1,4 +1,4 @@
-package com.frank.containerx.parser.xml;
+package com.frank.containerx.beans.parser.xml;
 
 import java.util.HashSet;
 import java.util.Set;

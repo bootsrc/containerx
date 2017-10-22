@@ -1,8 +1,8 @@
-package com.frank.containerx.container;
+package com.frank.containerx.beans.container;
 
 import java.util.Map;
 
-import com.frank.containerx.model.BeanElement;
+import com.frank.containerx.beans.model.BeanElement;
 
 public class BeanRegistry {
 	public static void register(Map<String, BeanElement> beanDefinitionMap) {

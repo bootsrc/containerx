@@ -1,8 +1,8 @@
-package com.frank.containerx.demo;
+package com.frank.containerx.demo.app;
 
+import com.frank.containerx.beans.factory.BeanFactory;
+import com.frank.containerx.beans.factory.XmlBeanFactory;
 import com.frank.containerx.demo.model.Person;
-import com.frank.containerx.factory.BeanFactory;
-import com.frank.containerx.factory.XmlBeanFactory;
 
 /**
  * containerx的demo

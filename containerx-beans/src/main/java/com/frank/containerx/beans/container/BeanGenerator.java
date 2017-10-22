@@ -1,4 +1,4 @@
-package com.frank.containerx.container;
+package com.frank.containerx.beans.container;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-import com.frank.containerx.model.BeanElement;
+import com.frank.containerx.beans.model.BeanElement;
 
 public class BeanGenerator {
 	/**
