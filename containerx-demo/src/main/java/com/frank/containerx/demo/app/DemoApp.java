@@ -11,6 +11,11 @@ import com.frank.containerx.demo.model.Person;
  */
 public class DemoApp {
 	public static void main(String[] args) {
+		iocDemo();
+		
+	}
+	
+	private static void iocDemo() {
 		BeanFactory beanFactory = new XmlBeanFactory("beans.xml");
 		Person person = (Person)beanFactory.getBean("myPerson");
 		
