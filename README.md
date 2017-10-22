@@ -44,4 +44,9 @@ person == person1? true
 method.invoke(bean, methodMap.get(methodName));
 </pre></code>
 
+#注意：
+cd containerx (进入containerx目录)
+mvn install
+就可以编译containerx-parent （包括下面的containerx-beans,containerx-aop,containerx-demo这3个module） <br/>
 
+运行containerx-demo可以运行小测试。 <br/>

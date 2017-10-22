@@ -6,14 +6,14 @@
   	<artifactId>container-parent</artifactId>
   	<version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>containerx-beans</artifactId>
+  <artifactId>containerx-aop</artifactId>
   <description>A simple bean container</description>
-  
+
   <dependencies>
-  	<dependency>
-  		<groupId>com.frank.containerx</groupId>
-  		<artifactId>containerx-aop</artifactId>
-  		<version>0.0.1-SNAPSHOT</version>
-  	</dependency>
-  </dependencies>
+		<dependency>
+       		<groupId>com.thoughtworks.xstream</groupId>
+       		<artifactId>xstream</artifactId>
+       		<version>1.4.10</version>
+   		</dependency>
+	</dependencies>
 </project>
