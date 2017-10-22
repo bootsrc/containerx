@@ -1,0 +1,11 @@
+D:\git\frank\containerx\containerx-beans\src\main\java\com\frank\containerx\demo\DemoApp.java
+D:\git\frank\containerx\containerx-beans\src\main\java\com\frank\containerx\container\BeanRegistry.java
+D:\git\frank\containerx\containerx-beans\src\main\java\com\frank\containerx\factory\BeanFactory.java
+D:\git\frank\containerx\containerx-beans\src\main\java\com\frank\containerx\parser\xml\DefaultDocumentLoader.java
+D:\git\frank\containerx\containerx-beans\src\main\java\com\frank\containerx\factory\XmlBeanFactory.java
+D:\git\frank\containerx\containerx-beans\src\main\java\com\frank\containerx\container\BeanGenerator.java
+D:\git\frank\containerx\containerx-beans\src\main\java\com\frank\containerx\model\BeanElement.java
+D:\git\frank\containerx\containerx-beans\src\main\java\com\frank\containerx\demo\model\Person.java
+D:\git\frank\containerx\containerx-beans\src\main\java\com\frank\containerx\parser\xml\BeanValidation.java
+D:\git\frank\containerx\containerx-beans\src\main\java\com\frank\containerx\model\PropertyElement.java
+D:\git\frank\containerx\containerx-beans\src\main\java\com\frank\containerx\container\BeanContainer.java

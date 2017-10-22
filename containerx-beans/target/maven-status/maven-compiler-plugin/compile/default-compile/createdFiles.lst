@@ -1,0 +1,11 @@
+com\frank\containerx\model\BeanElement.class
+com\frank\containerx\container\BeanContainer.class
+com\frank\containerx\parser\xml\BeanValidation.class
+com\frank\containerx\factory\XmlBeanFactory.class
+com\frank\containerx\demo\model\Person.class
+com\frank\containerx\container\BeanGenerator.class
+com\frank\containerx\parser\xml\DefaultDocumentLoader.class
+com\frank\containerx\demo\DemoApp.class
+com\frank\containerx\factory\BeanFactory.class
+com\frank\containerx\model\PropertyElement.class
+com\frank\containerx\container\BeanRegistry.class
