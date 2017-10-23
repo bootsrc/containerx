@@ -1,25 +1,13 @@
 package com.frank.containerx.beans.parser.xml;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.StringWriter;
 import java.util.HashMap;
-import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.OutputKeys;
-import javax.xml.transform.Result;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.TransformerFactoryConfigurationError;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
@@ -28,13 +16,16 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
+import com.frank.containerx.aop.model.AspectElement;
 import com.frank.containerx.aop.parser.AopConfigParser;
+import com.frank.containerx.aop.proxy.AopBeanProxy;
 import com.frank.containerx.beans.container.BeanContainer;
+import com.frank.containerx.beans.container.BeanGenerator;
 import com.frank.containerx.beans.model.BeanElement;
 import com.frank.containerx.beans.model.PropertyElement;
 
 public class DefaultDocumentLoader {
-	private static Document xmlFile2Doc(String fileName) {
+	public static Document xmlFile2Doc(String fileName) {
 		DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
 		InputSource inputSource = null;
 		Document document = null;
@@ -55,6 +46,7 @@ public class DefaultDocumentLoader {
 		return document;
 	}
 	
+	@Deprecated
 	public static Map<String, BeanElement> readDefinition(String fileName) throws Exception {
 		Map<String, BeanElement> beanDefinitionMap = new HashMap<String, BeanElement>();
 		if (fileName == null || fileName.length() < 1) {
@@ -71,9 +63,20 @@ public class DefaultDocumentLoader {
 			}
 		}
 		
-		//处理AOP
-		getAopConfig(doc);
+		return beanDefinitionMap;
+	}
+	
+	public static Map<String, BeanElement> readDefinition(Document doc) throws Exception {
+		Map<String, BeanElement> beanDefinitionMap = new HashMap<String, BeanElement>();
 		
+		NodeList beanList = doc.getElementsByTagName("bean");
+		if (beanList.getLength() > 0) {
+			for (int beanIndex = 0; beanIndex < beanList.getLength(); beanIndex++) {
+				Node beanNode = beanList.item(beanIndex);
+				BeanElement beanElement = parseOneBean(beanNode);
+				beanDefinitionMap.put(beanElement.getId(), beanElement);
+			}
+		}
 		return beanDefinitionMap;
 	}
 	
@@ -117,80 +120,5 @@ public class DefaultDocumentLoader {
 		
 		beanElement.setProperties(properties);
 		return beanElement;
-	}
-	
-	private static String getAopConfig(Document doc) {
-		NodeList beanList = doc.getElementsByTagName("aop-list");
-		Node node0 = beanList.item(0);
-		String xmlStr = nodetoString(node0);
-		System.out.println("--> DefaultDocumentLoader-getAopConfig");
-		System.out.println(xmlStr);
-		
-		AopConfigParser.getAopConfig(xmlStr);
-		return xmlStr;
-	}
-	
-//	public static String aopConfigTest(String fileName) throws Exception {
-//		Map<String, BeanElement> beanDefinitionMap = new HashMap<String, BeanElement>();
-//		if (fileName == null || fileName.length() < 1) {
-//			throw new IllegalArgumentException("fileName should not be empty!");
-//		}
-//		Document doc = DefaultDocumentLoader.xmlFile2Doc(fileName);
-//		getAopConfig(doc);
-//		return null;
-//	}
-	
-//	public static String nodeToString(Document doc) throws TransformerFactoryConfigurationError, TransformerException{   
-//        DOMSource source = new DOMSource(doc);   
-//         StringWriter writer = new StringWriter();   
-//         Result result = new StreamResult(writer);   
-//         Transformer transformer = TransformerFactory.newInstance().newTransformer();   
-//         transformer.setOutputProperty(OutputKeys.INDENT, "yes");   
-//         transformer.setOutputProperty(OutputKeys.CDATA_SECTION_ELEMENTS, "yes");   
-//         transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
-//         transformer.transform(source, result);   
-//         return (writer.getBuffer().toString());   
-//    }  
-	
-	/** 
-     * 将传入的一个DOM Node对象输出成字符串。如果失败则返回一个空字符串""。 
-     *  
-     * @param node 
-     *            DOM Node 对象。 
-     * @return a XML String from node 
-     */  
-    public static String nodetoString(Node node) {  
-        Transformer transformer = null;  
-        String result = null;  
-        if (node == null) {  
-            throw new IllegalArgumentException();  
-        }  
-        try {  
-            transformer = TransformerFactory.newInstance().newTransformer();  
-        } catch (Exception e) {  
-            throw new RuntimeException(e.getMessage());  
-        }  
-        if (transformer != null) {  
-            try {  
-                StringWriter sw = new StringWriter();  
-                transformer  
-                        .transform(new DOMSource(node), new StreamResult(sw));  
-                return sw.toString();  
-            } catch (TransformerException te) {  
-                throw new RuntimeException(te.getMessage());  
-            }  
-        }  
-        return result;  
-    }  
-	
-	public static void main(String[] args) {
-		try {
-//			readDefinition("beans.xml");
-			
-//			aopConfigTest("beans.xml");
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 }

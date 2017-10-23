@@ -1,27 +1,37 @@
 package com.frank.containerx.aop.parser;
 
-import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
-import com.frank.containerx.aop.model.AopElement;
-import com.frank.containerx.aop.model.AopListElement;
-import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.io.xml.DomDriver;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+
+import com.frank.containerx.aop.constant.AopTagName;
+import com.frank.containerx.aop.model.AspectElement;
+import com.frank.containerx.aop.model.AspectListElement;
+import com.frank.containerx.aop.util.XmlUtil;
 
 public class AopConfigParser {
-	private static <T> T toBean(String xmlStr, Class<T> cls) {
-        XStream xstream = new XStream(new DomDriver());
-        xstream.processAnnotations(cls);
-        @SuppressWarnings("unchecked")
-        T t = (T) xstream.fromXML(xmlStr);
-        return t;
-    }
+	public static List<AspectElement> getAspectList(Document doc) {
+		NodeList beanList = doc.getElementsByTagName(AopTagName.ASPECT_LIST);
+		if (beanList != null && beanList.getLength() > 0) {
+			Node node0 = beanList.item(0);
+			String xmlStr = XmlUtil.nodetoString(node0);
+			System.out.println("--> DefaultDocumentLoader-getAopConfig");
+			System.out.println(xmlStr);
+			
+			return doGetAspectList(xmlStr);
+		}
+		return new ArrayList<AspectElement>();
+	}
     
-    public static List<AopElement> getAopConfig(String xml) {
-    	AopListElement aopList = toBean(xml, AopListElement.class);
-        List<AopElement> list = aopList.getList();
-        for(AopElement aopElement : list) {
-        	System.out.println("id=" + aopElement.getId() + ", intercepter=" + aopElement.getInterceptor());
+    private static List<AspectElement> doGetAspectList(String xml) {
+    	AspectListElement aopList = XmlUtil.toBean(xml, AspectListElement.class);
+        List<AspectElement> list = aopList.getList();
+        for(AspectElement aopElement : list) {
+        	System.out.println("id=" + aopElement.getId() + ", bean=" + aopElement.getBean() 
+        	+ ", target=" + aopElement.getTarget());
             System.out.println("before=" + aopElement.getBefore() + ", after=" + aopElement.getAfter());
         }
         return list;

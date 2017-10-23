@@ -3,15 +3,19 @@ package com.frank.containerx.aop.model;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
 
-@XStreamAlias("aop")
-public class AopElement {
+@XStreamAlias("aop:aspect")
+public class AspectElement {
 	@XStreamAsAttribute()
 	@XStreamAlias("id")
 	private String id;
 	
 	@XStreamAsAttribute()
-	@XStreamAlias("interceptor")
-	private String interceptor;
+	@XStreamAlias("bean")
+	private String bean;
+	
+	@XStreamAsAttribute()
+	@XStreamAlias("target")
+	private String target;
 	
 	@XStreamAlias("before")
 	private String before;
@@ -37,10 +41,16 @@ public class AopElement {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getInterceptor() {
-		return interceptor;
+	public String getBean() {
+		return bean;
 	}
-	public void setInterceptor(String interceptor) {
-		this.interceptor = interceptor;
+	public void setBean(String bean) {
+		this.bean = bean;
+	}
+	public String getTarget() {
+		return target;
+	}
+	public void setTarget(String target) {
+		this.target = target;
 	}
 }

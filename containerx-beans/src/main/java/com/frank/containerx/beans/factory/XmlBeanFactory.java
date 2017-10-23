@@ -1,7 +1,14 @@
 package com.frank.containerx.beans.factory;
 
+import java.util.List;
 import java.util.Map;
 
+import org.w3c.dom.Document;
+
+import com.frank.containerx.aop.model.AspectElement;
+import com.frank.containerx.aop.parser.AopConfigParser;
+import com.frank.containerx.aop.proxy.AopBeanProxy;
+import com.frank.containerx.beans.container.BeanContainer;
 import com.frank.containerx.beans.container.BeanRegistry;
 import com.frank.containerx.beans.model.BeanElement;
 import com.frank.containerx.beans.parser.xml.DefaultDocumentLoader;
@@ -18,8 +25,12 @@ import com.frank.containerx.beans.parser.xml.DefaultDocumentLoader;
 public class XmlBeanFactory implements BeanFactory {
 	public XmlBeanFactory(String fileName) {
 		try {
-			Map<String, BeanElement> beanDefinitionMap = DefaultDocumentLoader.readDefinition(fileName);
+			Document doc = DefaultDocumentLoader.xmlFile2Doc(fileName);
+			
+			Map<String, BeanElement> beanDefinitionMap = DefaultDocumentLoader.readDefinition(doc);
 			BeanRegistry.register(beanDefinitionMap);
+			//
+			getAopConfig(doc);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -30,4 +41,33 @@ public class XmlBeanFactory implements BeanFactory {
 		Object bean = BeanRegistry.getSingletonBean(beanName);
 		return bean;
 	}
+	
+	private static void getAopConfig(Document doc) {
+		List<AspectElement> aspectList = AopConfigParser.getAspectList(doc);
+		if (aspectList != null && aspectList.size() > 0) {
+			for (AspectElement aspect : aspectList) {
+				String targetBeanName = aspect.getTarget();
+				Object target = BeanContainer.get(aspect.getTarget());
+				Object proxyBean = BeanContainer.get(aspect.getBean());
+				if (target != null && proxyBean != null) {
+					Object proxiedBean = new AopBeanProxy().bind(target, proxyBean, aspect);
+					// 用代理bean去代替bean容器中原有的ban
+					BeanContainer.put(aspect.getTarget(), proxiedBean);
+					System.out.println("用代理bean去代替bean容器中原有的ban 完毕.");
+				}
+			}
+		}
+	}
+	
+	private static ClassLoader getClassLoader() {
+        ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+        if (classLoader != null) {
+            return classLoader;
+        }
+        classLoader = XmlBeanFactory.class.getClassLoader();
+        if (classLoader != null) {
+            return classLoader;
+        }
+        return classLoader;
+    }
 }

@@ -11,10 +11,12 @@
 		<property name="name" value="Frank Liu"/>
 		<property name="address" value="Shanghai,China(中国-上海)"/>
 	</bean>
-	<aop-list>
-		<aop id="aop1" interceptor="intercepter1">
+	<bean id="demoService" class="com.frank.containerx.demo.service.DemoServiceImpl"/>
+	<bean id="demoAspect" class="com.frank.containerx.demo.aspect.DemoAspect"/>
+	<aop:aspect-list>
+		<aop:aspect id="aop1" bean="demoAspect" target="demoService">
 			<before>beforeMethod</before>
 			<after>afterMethod</after>
-		</aop>
-	</aop-list>
+		</aop:aspect>
+	</aop:aspect-list>
 </beans>
