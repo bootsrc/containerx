@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   
   <parent>
-    <groupId>com.frank.containerx</groupId>
+    <groupId>org.flylib.containerx</groupId>
   	<artifactId>container-parent</artifactId>
   	<version>0.0.1-SNAPSHOT</version>
   </parent>
@@ -11,7 +11,7 @@
   
   <dependencies>
   	<dependency>
-  		<groupId>com.frank.containerx</groupId>
+  		<groupId>org.flylib.containerx</groupId>
   		<artifactId>containerx-aop</artifactId>
   		<version>0.0.1-SNAPSHOT</version>
   	</dependency>
