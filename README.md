@@ -18,12 +18,12 @@ containerx是一款迷你型的bean容器，IoC框架。是作者学习了Spring
 ## 示例 ##
 containerx-demo项目 Java代码如下：
 <pre><code>
-package com.frank.containerx.demo.app;
+package org.flylib.containerx.demo.app;
 
-import com.frank.containerx.beans.factory.BeanFactory;
-import com.frank.containerx.beans.factory.XmlBeanFactory;
-import com.frank.containerx.demo.model.Person;
-import com.frank.containerx.demo.service.DemoService;
+import org.flylib.containerx.beans.factory.BeanFactory;
+import org.flylib.containerx.beans.factory.XmlBeanFactory;
+import org.flylib.containerx.demo.model.Person;
+import org.flylib.containerx.demo.service.DemoService;
 
 /**
  * containerx的demo
