@@ -3,7 +3,7 @@
   
   <parent>
     <groupId>org.flylib.containerx</groupId>
-  	<artifactId>container-parent</artifactId>
+  	<artifactId>containerx-parent</artifactId>
   	<version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>containerx-beans</artifactId>
