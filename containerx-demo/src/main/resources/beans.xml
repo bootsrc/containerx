@@ -7,12 +7,12 @@
 
 <beans>
 	<!-- id 表示你这个组件的名字，class表示组件类 -->
-	<bean id="myPerson" class="com.frank.containerx.demo.model.Person">
+	<bean id="myPerson" class="org.flylib.containerx.demo.model.Person">
 		<property name="name" value="Frank Liu"/>
 		<property name="address" value="Shanghai,China(中国-上海)"/>
 	</bean>
-	<bean id="demoService" class="com.frank.containerx.demo.service.DemoServiceImpl"/>
-	<bean id="demoAspect" class="com.frank.containerx.demo.aspect.DemoAspect"/>
+	<bean id="demoService" class="org.flylib.containerx.demo.service.DemoServiceImpl"/>
+	<bean id="demoAspect" class="org.flylib.containerx.demo.aspect.DemoAspect"/>
 	<aop:aspect-list>
 		<aop:aspect id="aop1" bean="demoAspect" target="demoService">
 			<before>beforeMethod</before>

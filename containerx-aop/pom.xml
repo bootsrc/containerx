@@ -2,19 +2,14 @@
   <modelVersion>4.0.0</modelVersion>
   
   <parent>
-    <groupId>com.frank.containerx</groupId>
-  	<artifactId>container-parent</artifactId>
+    <groupId>org.flylib.containerx</groupId>
+  	<artifactId>containerx-parent</artifactId>
   	<version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>containerx-aop</artifactId>
   <description>A simple bean container</description>
 
   <dependencies>
-<!-- 		<dependency> -->
-<!-- 			<groupId>com.frank.containerx</groupId> -->
-<!--   			<artifactId>containerx-beans</artifactId> -->
-<!--   			<version>0.0.1-SNAPSHOT</version> -->
-<!-- 		</dependency> -->
 		<dependency>
        		<groupId>com.thoughtworks.xstream</groupId>
        		<artifactId>xstream</artifactId>
