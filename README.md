@@ -24,9 +24,9 @@ mvn install
 Step 2: 在自己的项目里添加containerx的依赖
 <pre><code>
 &lt;dependency&gt;
-&nbsp;&nbsp;&lt;groupId&gt;org.flylib.containerx &lt;/groupId &gt;
-&nbsp;&nbsp;&lt;artifactId&gt;containerx&lt;/artifactId&gt;
-&nbsp;&nbsp;&lt;version&gt;0.0.2-SNAPSHOT&lt;/version &gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;groupId&gt;org.flylib.containerx &lt;/groupId &gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;artifactId&gt;containerx&lt;/artifactId&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;version&gt;0.0.2-SNAPSHOT&lt;/version &gt;
 &lt;/dependency &gt;
 </pre></code>
 
