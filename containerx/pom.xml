@@ -4,16 +4,16 @@
   <parent>
     <groupId>org.flylib.containerx</groupId>
   	<artifactId>containerx-parent</artifactId>
-  	<version>0.0.1-SNAPSHOT</version>
+  	<version>0.0.2-SNAPSHOT</version>
   </parent>
-  <artifactId>containerx-beans</artifactId>
-  <description>A simple bean container</description>
+  <artifactId>containerx</artifactId>
+  <description>A mini IoC container framework - containerx</description>
   
   <dependencies>
-  	<dependency>
-  		<groupId>org.flylib.containerx</groupId>
-  		<artifactId>containerx-aop</artifactId>
-  		<version>0.0.1-SNAPSHOT</version>
-  	</dependency>
-  </dependencies>
+		<dependency>
+       		<groupId>com.thoughtworks.xstream</groupId>
+       		<artifactId>xstream</artifactId>
+       		<version>1.4.10</version>
+   		</dependency>
+	</dependencies>
 </project>

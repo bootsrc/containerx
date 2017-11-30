@@ -2,11 +2,9 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.flylib.containerx</groupId>
   <artifactId>containerx-parent</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.2-SNAPSHOT</version>
   <packaging>pom</packaging>
   <modules>
-  	<module>containerx-beans</module>
-  	<module>containerx-aop</module>
-  	<module>containerx-demo</module>
+  	<module>containerx</module>
   </modules>
 </project>

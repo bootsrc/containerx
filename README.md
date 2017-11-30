@@ -15,6 +15,25 @@ containerx是一款迷你型的bean容器，IoC框架。是作者学习了Spring
 2. 单例bean的注册和获取;
 3. AOP面向切面编程（基于xml配置）;
 
+## quick start-快速上手 ##
+步骤如下：<br/>
+Step 1:   cd containerx (进入containerx根目录)
+mvn install
+就可以编译containerx-parent （包括子模块containerx），并安装到PC的本地仓库 <br/>
+
+Step 2: 在自己的项目里添加containerx的依赖
+<pre><code>
+&lt; dependency&gt;
+&lt; groupId&gt; org.flylib.containerx &lt;/ groupId &gt;
+&lt;artifactId &gt; containerx &lt;/artifactId&gt;
+&lt;version &gt; 0.0.2-SNAPSHOT &lt;/version &gt;
+&lt;/dependency &gt;
+</pre></code>
+
+可以参考containerx-demo项目。<br/>
+运行containerx-demo可以运行小测试。 <br/>
+
+
 ## 示例 ##
 containerx-demo项目 Java代码如下：
 <pre><code>
@@ -75,11 +94,3 @@ AOP日志
 <pre><code>
 method.invoke(bean, methodMap.get(methodName));
 </pre></code>
-
-## 注意事项 ##
-cd containerx (进入containerx目录)
-mvn install
-就可以编译containerx-parent （包括下面的containerx-beans,containerx-aop,containerx-demo这3个module） <br/>
-
-运行containerx-demo可以运行小测试。 <br/>
-如果想在自己的项目里使用containerx，参考containerx-demo， 添加containerx-parent的maven依赖就行了。<br/>
