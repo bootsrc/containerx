@@ -18,20 +18,20 @@ containerx是一款迷你型的bean容器，IoC框架。是作者学习了Spring
 ## quick start-快速上手 ##
 步骤如下：<br/>
 Step 1: 进入containerx根目录,编译并安装containerx-parent到本地仓库。执行如下命令：<br/>
-<pre><code>
+```
 cd containerx 
 mvn install
-</pre></code>
+```
 就可以编译containerx-parent （包括子模块containerx），并安装到PC的本地仓库 <br/>
 
 Step 2: 在自己的项目里添加containerx的依赖
-<pre><code>
-&lt;dependency&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&lt;groupId&gt;org.flylib.containerx&lt;/groupId&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&lt;artifactId&gt;containerx&lt;/artifactId&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&lt;version&gt;0.0.2-SNAPSHOT&lt;/version&gt;
-&lt;/dependency&gt;
-</pre></code>
+```
+<dependency>
+    <groupId>org.flylib.containerx</groupId>
+    <artifactId>containerx</artifactId>
+    <version>0.0.2-SNAPSHOT</version>
+</dependency>
+```
 
 可以参考containerx-demo项目。<br/>
 运行containerx-demo可以运行小测试。 <br/>
@@ -39,7 +39,7 @@ Step 2: 在自己的项目里添加containerx的依赖
 
 ## 示例 ##
 containerx-demo项目 Java代码如下：
-<pre><code>
+```java
 package org.flylib.containerx.demo.app;
 
 import org.flylib.containerx.beans.factory.BeanFactory;
@@ -78,9 +78,9 @@ public class Main {
 		demoService.doSomething();
 	}
 }
-</pre></code>
+```
 运行结果如下：
-<pre><code>
+```
 name=Frank Liu
 address=Shanghai,China(中国-上海)
 person=com.frank.containerx.demo.model.Person@33909752
@@ -89,11 +89,11 @@ person == person1? true
 ...
 AOP日志
 ...
-</pre></code>
+```
 
 ## 框架原理 ##
  核心方法是<code>inject(Object bean, Map<String, Object> properties)</code><br/>
 而其中核心的一行代码是
-<pre><code>
+```java
 method.invoke(bean, methodMap.get(methodName));
-</pre></code>
+```
