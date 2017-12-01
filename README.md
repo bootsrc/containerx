@@ -18,14 +18,14 @@ containerx是一款迷你型的bean容器，IoC框架。是作者学习了Spring
 ## quick start-快速上手 ##
 步骤如下：<br/>
 Step 1: 进入containerx根目录,编译并安装containerx-parent到本地仓库。执行如下命令：<br/>
-```
+```shell
 cd containerx 
 mvn install
 ```
 就可以编译containerx-parent （包括子模块containerx），并安装到PC的本地仓库 <br/>
 
 Step 2: 在自己的项目里添加containerx的依赖
-```
+```xml
 <dependency>
     <groupId>org.flylib.containerx</groupId>
     <artifactId>containerx</artifactId>
