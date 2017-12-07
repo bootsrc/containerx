@@ -2,15 +2,15 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>org.flylib.containerx</groupId>
+	<groupId>io.github.flylib</groupId>
 	<artifactId>containerx-demo</artifactId>
-	<version>0.0.2-SNAPSHOT</version>
+	<version>1.0.0</version>
 
 	<dependencies>
 		<dependency>
-			<groupId>org.flylib.containerx</groupId>
+			<groupId>io.github.flylib</groupId>
 			<artifactId>containerx</artifactId>
-			<version>0.0.2-SNAPSHOT</version>
+			<version>1.0.0</version>
 		</dependency>
 	</dependencies>
 </project>
