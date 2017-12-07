@@ -14,12 +14,6 @@ public class AopBeanProxy implements InvocationHandler {
 	
 	private AspectElement aspectDefinition;
 
-	/**
-	 * 
-	 * @param target 被代理的对象
-	 * @param proxy 拦截器（<aop:aspect>的bean指明的bean
-	 * @return
-	 */
 	public Object bind(Object target, Object proxy, AspectElement aspectDefinition) {
 		this.target = target;
 		this.proxy = proxy;

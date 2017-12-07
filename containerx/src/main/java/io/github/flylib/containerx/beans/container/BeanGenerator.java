@@ -9,12 +9,6 @@ import java.util.Set;
 import io.github.flylib.containerx.beans.model.BeanElement;
 
 public class BeanGenerator {
-	/**
-	 * 核心注入方法
-	 * <code>method.invoke(bean, methodMap.get(methodName));</code>
-	 * @param bean
-	 * @param properties
-	 */
 	public static void inject(Object bean, Map<String, String> properties) {
 		Map<String, String> methodMap = new HashMap<String, String>();
 		for (Map.Entry<String, String> entry : properties.entrySet()) {

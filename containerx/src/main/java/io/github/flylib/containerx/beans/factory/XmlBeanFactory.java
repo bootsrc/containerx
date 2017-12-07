@@ -16,9 +16,7 @@ import io.github.flylib.containerx.beans.parser.xml.DefaultDocumentLoader;
 /**
  * 类似于Spring的一个bean container - bean容器. 简单的依赖注入功能. 可以提高开发者对Java反射机制，
  * 以及Spring依赖注入原理的理解
- * 核心方法是com.frank.containerx.container.BeanGenerator的这个方法:
- * <code>public static void inject(Object bean, Map<String, String> properties)</code><br/>
- * 
+ * 核心方法是com.frank.containerx.container.BeanGenerator的这个方法:inject
  * @author Frank Liu(liushaomingdev@163.com)
  *
  */
@@ -53,7 +51,8 @@ public class XmlBeanFactory implements BeanFactory {
 					Object proxiedBean = new AopBeanProxy().bind(target, proxyBean, aspect);
 					// 用代理bean去代替bean容器中原有的bean
 					BeanContainer.put(aspect.getTarget(), proxiedBean);
-					System.out.println("用代理bean去代替bean容器中原有的bean 完毕.");
+//					System.out.println("用代理bean去代替bean容器中原有的bean 完毕.");
+					System.out.println("Replace original bean with proxy-bean success in bean-container.");
 				}
 			}
 		}
