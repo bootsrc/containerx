@@ -2,51 +2,31 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<groupId>io.github.flylib</groupId>
-		<artifactId>containerx-parent</artifactId>
-		<version>1.0.0</version>
-	</parent>
+	<groupId>io.github.flylib</groupId>
 	<artifactId>containerx</artifactId>
-	<description>A mini IoC container framework - containerx</description>
+	<version>1.0.1</version>
 
+	<name>containerx</name>
+	<description>A mini IoC (Dependency Injection) framework</description>
+	<url>https://github.com/flylib/containerx</url>
 	<licenses>
 		<license>
-			<name>The MIT License</name>
+			<name>The MIT License, Version 2.0</name>
 			<url>https://opensource.org/licenses/MIT</url>
-			<distribution>repo</distribution>
 		</license>
 	</licenses>
-
-	<scm>
-		<connection>git@github.com:flylib/containerx.git</connection>
-		<developerConnection>http://blog.csdn.net/lsm135</developerConnection>
-		<url>https://github.com/flylib/containerx</url>
-	</scm>
-
 	<developers>
 		<developer>
-			<name>Frank Liu</name>
+			<name>liushaoming</name>
 			<email>liushaomingdev@163.com</email>
-			<url>http://blog.csdn.net/lsm135</url>
 		</developer>
 	</developers>
+	<scm>
+		<connection>scm:git:git://github.com/flylib/containerx.git</connection>
+		<developerConnection>scm:git:ssh://github.com:flylib/containerx.git</developerConnection>
+		<url>https://github.com/flylib/containerx/tree/develop/containerx</url>
+	</scm>
 
-	<distributionManagement>
-	    <snapshotRepository>
-	        <id>ossrh</id>
-	        <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-	    </snapshotRepository>
-	    <repository>
-	        <id>ossrh</id>
-	        <name>Maven Central Staging Repository</name>
-	        <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-	    </repository>
-	</distributionManagement>
-
-	<properties>
-		
-	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>com.thoughtworks.xstream</groupId>
@@ -54,68 +34,79 @@
 			<version>1.4.10</version>
 		</dependency>
 	</dependencies>
-	<issueManagement>
-		<system>github</system>
-	</issueManagement>
-	
+
+	<distributionManagement>
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+	</distributionManagement>
 	<build>
 		<plugins>
-		    <plugin>
-		        <groupId>org.sonatype.plugins</groupId>
-		        <artifactId>nexus-staging-maven-plugin</artifactId>
-		        <version>1.6.3</version>
-		        <extensions>true</extensions>
-		        <configuration>
-		            <serverId>ossrh</serverId>
-		            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-		            <autoReleaseAfterClose>true</autoReleaseAfterClose>
-		        </configuration>
-		    </plugin>
-		    <plugin>
-		        <groupId>org.apache.maven.plugins</groupId>
-		        <artifactId>maven-javadoc-plugin</artifactId>
-		        <version>2.10.3</version>
-		        <configuration>
-			      <charset>UTF-8</charset>
-			      <encoding>UTF-8</encoding>
-			      <docencoding>UTF-8</docencoding>
-   				</configuration>
-		        
-		        <executions>
-		            <execution>
-		                <id>attach-javadocs</id>
-		                <goals>
-		                    <goal>jar</goal>
-		                </goals>
-		            </execution>
-		        </executions>
-		    </plugin>
-		    <plugin>
-		        <groupId>org.apache.maven.plugins</groupId>
-		        <artifactId>maven-source-plugin</artifactId>
-		        <executions>
-		            <execution>
-		                <id>attach-sources</id>
-		                <goals>
-		                    <goal>jar-no-fork</goal>
-		                </goals>
-		            </execution>
-		        </executions>
-		    </plugin>
-		    <plugin>
-		        <groupId>org.apache.maven.plugins</groupId>
-		        <artifactId>maven-gpg-plugin</artifactId>
-		        <version>1.6</version>
-		        <executions>
-		            <execution>
-		                <id>sign-artifacts</id>
-		                <phase>verify</phase>
-		                <goals>
-		                    <goal>sign</goal>
-		                </goals>
-		            </execution>
-		        </executions>
-		    </plugin>
+			<plugin>
+				<groupId>org.sonatype.plugins</groupId>
+				<artifactId>nexus-staging-maven-plugin</artifactId>
+				<version>1.6.7</version>
+				<extensions>true</extensions>
+				<configuration>
+					<serverId>ossrh</serverId>
+					<nexusUrl>https://oss.sonatype.org/</nexusUrl>
+					<autoReleaseAfterClose>true</autoReleaseAfterClose>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.2.1</version>
+				<configuration>
+					<charset>UTF-8</charset>
+					<encoding>UTF-8</encoding>
+				</configuration>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.9.1</version>
+				<configuration>
+					<charset>UTF-8</charset>
+					<encoding>UTF-8</encoding>
+					<docencoding>UTF-8</docencoding>
+				</configuration>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>1.5</version>
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 </project>
