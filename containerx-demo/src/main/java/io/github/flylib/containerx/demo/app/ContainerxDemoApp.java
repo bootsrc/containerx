@@ -10,7 +10,7 @@ import io.github.flylib.containerx.demo.service.DemoService;
  * @author Frank Liu(liushaomingdev@163.com)
  *
  */
-public class Main {
+public class ContainerxDemoApp {
 	public static void main(String[] args) {
 		iocDemo();
 	}

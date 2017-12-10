@@ -107,3 +107,37 @@ person == person1? true
 ```java
 method.invoke(bean, methodMap.get(methodName));
 ```
+
+## 常见问题的解决方案 ##
+1. 我自己的控制台程序Java Application程序为何mvn package后提示找不到main class ?
+答：在pom.xml文件中没有做项目的打包设置的时候，默认没有致命main()函数所在的class。 对于maven的Java Application项目（控制台程序），可以字在pom.xml中增加如下设置
+```xml
+<build>
+	<plugins>
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-assembly-plugin</artifactId>
+			<version>2.5.5</version>
+			<configuration>
+				<archive>
+					<manifest>
+						<mainClass>io.github.flylib.containerx.demo.app.ContainerxDemoApp</mainClass>
+					</manifest>
+				</archive>
+				<descriptorRefs>
+					<descriptorRef>jar-with-dependencies</descriptorRef>
+				</descriptorRefs>
+			</configuration>
+		</plugin>
+	</plugins>
+</build>
+```
+打包的时候执行
+```shell
+mvn clean package assembly:single
+```
+生成了jar包aaa-jar-with-dependencies.jar。这样就可以直接执行jar包了
+```shell
+cd target
+java -jar aaa-jar-with-dependencies.jar
+```
