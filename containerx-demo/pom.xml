@@ -1,25 +1,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	
-	<parent>
-		<groupId>org.flylib.containerx</groupId>
-		<artifactId>containerx-parent</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-	</parent>
-	
+
+	<groupId>io.github.flylib</groupId>
 	<artifactId>containerx-demo</artifactId>
+	<version>1.0.1</version>
 
 	<dependencies>
 		<dependency>
-			<groupId>org.flylib.containerx</groupId>
-			<artifactId>containerx-beans</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>org.flylib.containerx</groupId>
-			<artifactId>containerx-aop</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<groupId>io.github.flylib</groupId>
+			<artifactId>containerx</artifactId>
+			<version>1.0.1</version>
 		</dependency>
 	</dependencies>
 </project>
