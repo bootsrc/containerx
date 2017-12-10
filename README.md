@@ -18,23 +18,19 @@ A mini IoC (dependency injection) framework
 
 ## quick start-快速上手 ##
 步骤如下：<br/>
-Step 1: 进入containerx根目录,编译并安装containerx-parent到本地仓库。执行如下命令：<br/>
-```shell
-cd containerx 
-mvn install
-```
-就可以编译containerx-parent （包括子模块containerx），并安装到PC的本地仓库 <br/>
-
-Step 2: 在自己的项目里添加containerx的依赖
+Step 1: 在自己的项目里添加containerx的依赖
 ```xml
 <dependency>
-    <groupId>org.flylib.containerx</groupId>
-    <artifactId>containerx</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+	<groupId>io.github.flylib</groupId>
+	<artifactId>containerx</artifactId>
+	<version>1.0.1</version>
 </dependency>
 ```
-
-可以参考containerx-demo项目。<br/>
+Step2 :在自己的项目里面执行
+```shell
+mvn compile
+```
+以参考containerx-demo项目。<br/>
 运行containerx-demo可以运行小测试。 <br/>
 
 
