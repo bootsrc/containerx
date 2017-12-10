@@ -30,9 +30,7 @@ Step2 :在自己的项目里面执行
 ```shell
 mvn compile
 ```
-以参考containerx-demo项目。<br/>
-运行containerx-demo可以运行小测试。 <br/>
-
+可以参考containerx-demo项目。<br/>
 
 ## 示例 ##
 containerx-demo项目 Java代码如下：
