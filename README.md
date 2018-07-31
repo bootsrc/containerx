@@ -8,7 +8,8 @@ A mini IoC (dependency injection) framework
 ## 开发者 ##
 刘少明(Frank Liu) &nbsp;&nbsp;&nbsp; git [https://github.com/flylib](https://github.com/flylib "https://github.com/flylib")
 &nbsp;&nbsp;&nbsp; 邮箱 liushaomingdev@163.com <br/>
-博客： csdn &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [http://blog.csdn.net/lsm135](http://blog.csdn.net/lsm135 "http://blog.csdn.net/lsm135") <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 开源中国 [https://my.oschina.net/u/3051910/blog](https://my.oschina.net/u/3051910/blog "https://my.oschina.net/u/3051910/blog")
+
+flylib博客:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [http://www.flylib.org](http://www.flylib.org "http://www.flylib.org")
 <br/>
 
 ## 实现的功能 ##
@@ -26,10 +27,75 @@ Step 1: 在自己的项目里添加containerx的依赖
 	<version>1.0.1</version>
 </dependency>
 ```
-Step2 :在自己的项目里面执行
+Step2: 在自己的项目里面执行
 ```shell
 mvn compile
 ```
+Step3: 打包自己的程序
+
+如果需要打包成可以运行的Java Application，需要注意 <br/>
+pom.xml增加
+```xml
+<properties>
+	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	<jdk.version>1.8</jdk.version>
+</properties>
+
+<build>
+	<plugins>
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-compiler-plugin</artifactId>
+			<version>2.3.2</version>
+			<configuration>
+				<source>${jdk.version}</source>
+				<target>${jdk.version}</target>
+				<encoding>${project.build.sourceEncoding}</encoding>
+			</configuration>
+		</plugin>
+
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-jar-plugin</artifactId>
+			<version>2.6</version>
+			<configuration>
+				<archive>
+					<manifest>
+						<addClasspath>true</addClasspath>
+						<classpathPrefix>lib/</classpathPrefix>
+						<mainClass>io.github.flylib.containerx.demo.app.ContainerxDemoApp</mainClass>
+					</manifest>
+				</archive>
+			</configuration>
+		</plugin>
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-dependency-plugin</artifactId>
+			<version>2.10</version>
+			<executions>
+				<execution>
+					<id>copy-dependencies</id>
+					<phase>package</phase>
+					<goals>
+						<goal>copy-dependencies</goal>
+					</goals>
+					<configuration>
+						<outputDirectory>${project.build.directory}/lib</outputDirectory>
+					</configuration>
+				</execution>
+			</executions>
+		</plugin>
+
+	</plugins>
+</build>
+```
+然后执行<code>mvn package</code> <br/> 在target路径下生成了containerx-demo-1.0.1.jar(包含有Main-Class和Class-Path的MANIFEST.MF)以及包含有所有依赖的jar的lib文件夹
+
+Step4.运行自己的jar包
+```shell
+java -jar containerx-demo-1.0.1.jar
+```
+
 可以参考containerx-demo项目。<br/>
 
 ## 示例 ##
@@ -112,36 +178,44 @@ method.invoke(bean, methodMap.get(methodName));
 1. 我自己的控制台程序Java Application程序为何mvn package后提示找不到main class ?
 
 
-答：在pom.xml文件中没有做项目的打包设置的时候，默认没有致命main()函数所在的class。 对于maven的Java Application项目（控制台程序），可以字在pom.xml中增加如下设置
+答：在pom.xml文件中没有做项目的打包设置的时候，默认没有设置main()函数所在的class, 并且带上依赖的jar包。 对于maven的Java Application项目（控制台程序），可以字在pom.xml中增加如下设置
 ```xml
-<build>
-	<plugins>
-		<plugin>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-assembly-plugin</artifactId>
-			<version>2.5.5</version>
+<plugin>
+	<groupId>org.apache.maven.plugins</groupId>
+	<artifactId>maven-jar-plugin</artifactId>
+	<version>2.6</version>
+	<configuration>
+		<archive>
+			<manifest>
+				<addClasspath>true</addClasspath>
+				<classpathPrefix>lib/</classpathPrefix>
+				<mainClass>io.github.flylib.containerx.demo.app.ContainerxDemoApp</mainClass>
+			</manifest>
+		</archive>
+	</configuration>
+</plugin>
+<plugin>
+	<groupId>org.apache.maven.plugins</groupId>
+	<artifactId>maven-dependency-plugin</artifactId>
+	<version>2.10</version>
+	<executions>
+		<execution>
+			<id>copy-dependencies</id>
+			<phase>package</phase>
+			<goals>
+				<goal>copy-dependencies</goal>
+			</goals>
 			<configuration>
-				<archive>
-					<manifest>
-						<mainClass>io.github.flylib.containerx.demo.app.ContainerxDemoApp</mainClass>
-					</manifest>
-				</archive>
-				<descriptorRefs>
-					<descriptorRef>jar-with-dependencies</descriptorRef>
-				</descriptorRefs>
+				<outputDirectory>${project.build.directory}/lib</outputDirectory>
 			</configuration>
-		</plugin>
-	</plugins>
-</build>
+		</execution>
+	</executions>
+</plugin>
+
 ```
 打包的时候执行
 ```shell
-mvn clean package assembly:single
-```
-生成了jar包aaa-jar-with-dependencies.jar。这样就可以直接执行jar包了
-```shell
-cd target
-java -jar aaa-jar-with-dependencies.jar
+mvn package
 ```
 
 如果您愿意捐助一下项目，可以通过微信/支付宝捐助哟~
