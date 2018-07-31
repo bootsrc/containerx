@@ -143,3 +143,10 @@ mvn clean package assembly:single
 cd target
 java -jar aaa-jar-with-dependencies.jar
 ```
+
+如果您愿意捐助一下项目，可以通过微信/支付宝捐助哟~
+
+|支付宝         | 微信           | 余额宝领红包|
+| ------------- |:-------------:|:-------------:|
+| ![](https://github.com/flylib/containerx/blob/master/alipay.png)      | ![](https://github.com/flylib/containerx/blob/master/wechat.png) | ![](https://github.com/flylib/containerx/blob/master/redPacket.png) |
+
