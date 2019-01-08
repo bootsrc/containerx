@@ -1,0 +1,29 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>io.github.flylib</groupId>
+	<artifactId>containerx-root</artifactId>
+	<version>1.0.1</version>
+
+	<name>containerx-root</name>
+	<description>A mini IoC (Dependency Injection) framework</description>
+	<url>https://github.com/flylib/containerx</url>
+	<licenses>
+		<license>
+			<name>The MIT License</name>
+			<url>https://opensource.org/licenses/MIT</url>
+		</license>
+	</licenses>
+	<developers>
+		<developer>
+			<name>liushaoming</name>
+			<email>liushaomingdev@163.com</email>
+		</developer>
+	</developers>
+	<scm>
+		<connection>scm:git:git://github.com/flylib/containerx.git</connection>
+		<developerConnection>scm:git:ssh://github.com:flylib/containerx.git</developerConnection>
+		<url>https://github.com/flylib/containerx/tree/develop/containerx</url>
+	</scm>
+</project>
