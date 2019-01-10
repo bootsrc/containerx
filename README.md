@@ -13,15 +13,6 @@
 key是bean的name， value就是那个单例bean。有没有感觉豁然开朗？这样可以实现带依赖注入功能的容器。  <br/>
 InvocationHandler,还有Proxy.newProxyInstance()...  灵光一闪，是不是有实现AOP的思路了？ <br/>
 
-## 用途 ##
-主要用于学习Spring/AOP原理, 或者在自己项目中用于轻量级IoC。
-## 开发者 ##
-刘少明(Frank Liu) &nbsp;&nbsp;&nbsp; git [https://github.com/flylib](https://github.com/flylib "https://github.com/flylib")
-&nbsp;&nbsp;&nbsp; 邮箱 liushaomingdev@163.com <br/>
-
-flylib博客:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [http://www.flylib.org](http://www.flylib.org "http://www.flylib.org")
-<br/>
-
 ## 实现的功能 ##
 1. setter注入（目前基于xml配置bean，未来会支持注解配置bean）;
 2. 单例bean的注册和获取;
@@ -230,7 +221,7 @@ mvn package
 
 如果您愿意捐助一下项目，可以通过微信/支付宝捐助哟~
 
-|支付宝         | 微信           |
-| ------------- |:-------------:|
-| ![](https://github.com/flylib/containerx/blob/develop/alipay.png)      | ![](https://github.com/flylib/containerx/blob/develop/wechat.png) |
+| 微信           |
+|:-------------:|
+| ![](https://github.com/flylib/containerx/blob/develop/wechat.png) |
 
