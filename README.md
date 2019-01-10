@@ -3,6 +3,16 @@
 ⚡一个迷你型Java依赖注入框架，代码量小，实现了依赖注入和AOP。适合Spring源码的初学者掌握核心原理。
 
 极少使用其他的第三方jar包。
+
+## 架构思路
+自己写一个Spring框架？博主，你在开玩笑吗？NO! 通过研究了Spring源码的核心思想，自己用写一个小框架，加载类似<br/>
+的beans.xml配置，并且把bean都以单例方式注册到容器中，并且用InvocationHandler来实现AOP这个，就是核心思想<br/>
+，而且具备可行性。只不过没有Spring源码那样处理其它的细枝末节。<br/>
+
+容器的本质是什么？--ConcurrentHashMap!   <br/>
+key是bean的name， value就是那个单例bean。有没有感觉豁然开朗？这样可以实现带依赖注入功能的容器。  <br/>
+InvocationHandler,还有Proxy.newProxyInstance()...  灵光一闪，是不是有实现AOP的思路了？ <br/>
+
 ## 用途 ##
 主要用于学习Spring/AOP原理, 或者在自己项目中用于轻量级IoC。
 ## 开发者 ##
