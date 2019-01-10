@@ -1,7 +1,7 @@
 # containerx #
 ## 简介 ##
-containerx是一款迷你型的bean容器，IoC框架。是作者学习了Spring源码后，为了进一步学习Spring原理而自行开发的框架。 <br/>
-A mini IoC (dependency injection) framework
+⚡一个迷你型Java依赖注入框架，代码量小，实现了依赖注入和AOP。适合Spring源码的初学者掌握核心原理。
+
 极少使用其他的第三方jar包。
 ## 用途 ##
 主要用于学习Spring/AOP原理, 或者在自己项目中用于轻量级IoC。
@@ -220,7 +220,7 @@ mvn package
 
 如果您愿意捐助一下项目，可以通过微信/支付宝捐助哟~
 
-|支付宝         | 微信           | 余额宝领红包|
-| ------------- |:-------------:|:-------------:|
-| ![](https://github.com/flylib/containerx/blob/develop/alipay.png)      | ![](https://github.com/flylib/containerx/blob/develop/wechat.png) | ![](https://github.com/flylib/containerx/blob/develop/redPacket.png) |
+|支付宝         | 微信           |
+| ------------- |:-------------:|
+| ![](https://github.com/flylib/containerx/blob/develop/alipay.png)      | ![](https://github.com/flylib/containerx/blob/develop/wechat.png) |
 
