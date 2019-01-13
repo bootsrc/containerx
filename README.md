@@ -223,5 +223,5 @@ mvn package
 
 | 微信           |
 |:-------------:|
-| ![](https://github.com/flylib/containerx/blob/develop/wechat.png) |
+| ![](https://github.com/liushaoming/containerx/blob/develop/wechat.png) |
 
